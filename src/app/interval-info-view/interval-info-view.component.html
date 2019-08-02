@@ -1,0 +1,73 @@
+<br/>
+<div class='row' *ngIf="CurrentInfo.length>0">
+<div class="card text-center col-sm-12 mt-20" *ngFor='let CurrentInfo of CurrentInfo'>
+  <div class="card-header">
+    Featured
+  </div>
+  <div class="card-body">
+    <h5 class="card-title" *ngIf='CurrentInfo.name'> {{CurrentInfo.name | uppercase}} </h5>
+    <h5 class="card-text" *ngIf='CurrentInfo.gender'>Gender: {{CurrentInfo.gender | uppercase}} </h5>
+    <p class="card-text" *ngIf='CurrentInfo.isbn'>ISBN: {{CurrentInfo.isbn}} </p>
+
+    <span  *ngIf='CurrentInfo.authors'>
+    Authors: 
+    <span class="card-text" *ngFor='let author of CurrentInfo.authors;let first=first;let last=last'> {{author}} {{last ? '' : ', '}} </span>
+  </span>
+    <br/>
+<span  *ngIf='CurrentInfo.characters'>
+    Characters: 
+    <br/>
+   
+    <span class="card-text" *ngFor='let Character of CurrentInfo.characters;let first=first;let last=last'>
+       <a [routerLink]="['/interval-info-view',Character]">{{Character}}</a> {{last ? '' : ', '}} 
+    </span>
+  </span>
+
+  <span  *ngIf='CurrentInfo.aliases'>
+    aliases: 
+    <br/>
+   
+    <span class="card-text" *ngFor='let aliases of CurrentInfo.aliases;let first=first;let last=last'>
+       {{aliases}} {{last ? '' : ', '}} 
+    </span>
+  </span>
+
+  <span  *ngIf='CurrentInfo.religion'>
+    Characters: 
+    <br/>
+    
+    <span class="card-text" *ngFor='let religion of CurrentInfo.religion;let first=first;let last=last'>
+       <a href="{{religion}}">{{religion}}</a> {{last ? '' : ', '}} 
+    </span>
+  </span>
+
+  <span  *ngIf='CurrentInfo.swornMembers'>
+    sworn Members: 
+    <br/>
+    
+    <span class="card-text" *ngFor='let swornMembers of CurrentInfo.swornMembers;let first=first;let last=last'>
+       <a href="{{swornMembers}}">{{swornMembers}}</a> {{last ? '' : ', '}} 
+    </span>
+  </span>
+<br/>
+
+<span  *ngIf='CurrentInfo.books'>
+  url: 
+  <br/>
+  
+  <span class="card-text" *ngFor='let books of CurrentInfo.books;let first=first;let last=last'>
+     <a href="{{books}}">{{books}}</a> {{last ? '' : ', '}} 
+  </span>
+</span>
+<br/>
+    <!-- <span class="col-sm-4"><a class="btn btn-primary" [routerLink] = "['/home']">Update</a></span>
+    <span class="col-sm-4"> <a class="btn btn-danger" [routerLink] = "['/home']">Delete</a></span> -->
+      <!-- <span class="col-sm-4"> <a class="btn btn-dark" [routerLink] = "['/info-view',CurrentInfo.url]">Go Back</a></span> -->
+  </div>
+
+  
+  <div class="card-footer text-muted">
+   {{ CurrentInfo.released | date }}
+  </div>
+</div>
+</div>

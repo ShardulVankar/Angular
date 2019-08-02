@@ -1,0 +1,64 @@
+<br/>
+<div class='row' *ngIf='BookInfos.length>0'>
+<div class="card text-center col-sm-4 mt-20" *ngFor='let info of BookInfos'>
+  <div class="card-header">
+    Featured
+  </div>
+  <div class="card-body">
+    <h5 class="card-title"> {{info.name | uppercase}} </h5>
+    <p class="card-text"> {{info.isbn}} </p>
+
+    Authors: 
+    <span class="card-text" *ngFor='let author of info.authors;let first=first;let last=last'> {{author}} {{last ? '' : ', '}} </span>
+
+<br/>
+    <a class="btn btn-primary" [routerLink] = "['/info-view',info.url]">Read Details</a>
+  </div>
+  <div class="card-footer text-muted">
+   {{ info.released | date }}
+  </div>
+</div>
+</div>
+
+<div class='row' *ngIf='HousesInfos.length>0'>
+  <div class="card text-center col-sm-4 mt-20" *ngFor='let info of HousesInfos'>
+    <div class="card-header">
+      Featured
+    </div>
+    <div class="card-body">
+      <h5 class="card-title"> {{info.name | uppercase}} </h5>
+      <p class="card-text"> {{info.region}} </p>
+  
+      Authors: 
+      <span class="card-text" *ngFor='let title of info.titles;let first=first;let last=last'> {{title}} {{last ? '' : ', '}} </span>
+  
+  <br/>
+      <a class="btn btn-primary" [routerLink] = "['/info-view',info.url]">Read Details</a>
+    </div>
+    <div class="card-footer text-muted">
+     {{ info.released | date }}
+    </div>
+  </div>
+  </div>
+
+  <div class='row' *ngIf='CharactersInfos.length>0'>
+    <div class="card text-center col-sm-4 mt-20" *ngFor='let info of CharactersInfos'>
+      <div class="card-header">
+        Featured
+      </div>
+      <div class="card-body">
+        <h5 class="card-title"> {{info.name | uppercase}} </h5>
+        <p class="card-text"> {{info.gender}} </p>
+    
+        Authors: 
+        <span class="card-text" *ngFor='let aliase of info.aliases;let first=first;let last=last'> {{aliases}} {{last ? '' : ', '}}
+          </span>
+    
+    <br/>
+        <a class="btn btn-primary" [routerLink] = "['/info-view',info.url]">Read Details</a>
+      </div>
+      <div class="card-footer text-muted">
+       {{ info.father }}
+      </div>
+    </div>
+    </div>

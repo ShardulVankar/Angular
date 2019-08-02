@@ -1,0 +1,12 @@
+.NavBarFont{
+    color:white;
+}
+
+.nav-link{
+    color:white !important;
+}
+
+.ActiveLink{
+background-color:red !important;
+
+}
